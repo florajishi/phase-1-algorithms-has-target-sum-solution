@@ -1,5 +1,29 @@
+// function hasTargetSum(array, target) {
+//   // Write your algorithm here
+//   const previousValues = {}
+//   for(let i = 0; i < array.length; i++){
+//     const currentNumber = array[i]
+//     const neededValue = target - currentNumber
+//     const index2 = previousValues[neededValue]
+//     if(index2 != null){
+//       return true
+//     } else {
+//       previousValues[currentNumber] = i
+//     }
+//   }
+//   return false
+// }
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = new Set(); // initialize empty Set
+  //Set objects are collections of values that can only be used once
+  //good for keeping track of unique values, or to compare to the Object type, only the KEYS
+  for(const number of array){
+    const complement = target - number;
+
+    if(seenNumbers.has(complement)) return true;
+    seenNumbers.add(number)
+  }
+  return false
 }
 
 /* 
